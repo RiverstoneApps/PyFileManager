@@ -1,8 +1,10 @@
+# Import Shutil(File Mover, Copier and Renamer), OS(Operating System Commands), Time(Displays the Time and Date) and Subprocess(Unknown Use)
 import shutil
 import os
 import time
 import subprocess
 
+# Defining Functions
 def Read():
     path=input("Enter the file path to read:")
     file=open(path, "r")
@@ -29,7 +31,6 @@ def Add():
 def Delete():
     path=input("Enter the path of the file for deletion:")
     if os.path.exsists(path):
-        print('File Found')
         os.remove(path)
         print('File Removed')
     else:
@@ -61,5 +62,33 @@ def Check():
        else:
            print('Directory Not Found')
 
-#Still need to define Move(Move()), Copy(Copy()), MakeDirectory(Mkdir()), RemoveDirectory(RmDir()) and OpenFile(Openfile())
-#Then need to add code to list options and run them accordingly.
+def Move():
+    path1=input('Enter the source path of the file to move:')
+    mr=int(input('1.Rename \n2.Move \n'))
+    if mr==1:
+        path2=input('Enter the destination path and file name')
+        shutil.move(path1,path2)
+        print('File Renamed')
+    if mr==2:
+        path2=input('Enter the path to move:')
+        shutil.move(path1,path2)
+        print('File Moved')
+
+def Copy():
+    path1=input('Enter the path of the file to copy or rename:')
+    path2=input('Enter the path to copy to:')
+    shutil.copy(path1,path2)
+    print('File Copied')
+
+def Rename():
+    path=input('Enter the path of the file to rename:')
+    name=input('Enter new name for file:')
+    shutil.rename(path,name)
+
+def Mkdir():
+    path=input("Enter the directory name with path to make \neg. C:\\Hello\\Newdir \nWhere Newdir is new directory:")
+    os.makedirs(path)
+    print('Directory Created')
+
+def Rmdir():
+    

@@ -45,21 +45,21 @@ def Dirlist():
 
 def Check():
     fp=int(input('Check exsistence of \n1.File \n2.Directory\n'))
-        if fp==1:
-            path=input("Enter the file path:")
-            os.path.isfile(path)
+    if fp==1:
+        path=input("Enter the file path:")
+        os.path.isfile(path)
 
-        if os.path.isfile(path)==True:
-            print('File Found')
-        else:
-            print('File Not Found')
-        if fp==2:
-            path=input("Enter the Directory path:")
-            os.path.isdir(path)
-            if os.path.isdir(path)==False:
-                print('Directory Found')
-            else:
-                print('Directory Not Found')
+    if os.path.isfile(path)==True:
+        print('File Found')
+    else:
+        print('File Not Found')
+    if fp==2:
+       path=input("Enter the Directory path:")
+       os.path.isdir(path)
+       if os.path.isdir(path)==False:
+           print('Directory Found')
+       else:
+           print('Directory Not Found')
 
 #Still need to define Move(Move()), Copy(Copy()), MakeDirectory(Mkdir()), RemoveDirectory(RmDir()) and OpenFile(Openfile())
 #Then need to add code to list options and run them accordingly.

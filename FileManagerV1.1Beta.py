@@ -4,10 +4,8 @@ import os
 import time
 import subprocess
 
-try:
-    os.system('clear')
-except:
-    os.system('cls')
+os.system('clear')
+os.system('cls')
 
 # Defining Functions
 def Read():
@@ -68,21 +66,22 @@ def Check():
 
 def Move():
     path1=input('Enter the source path of the file to move:')
-    mr=int(input('1.Move and Rename \n2.Move \n'))
-    if mr==1:
-        path2=input('Enter the destination path and file name')
-        shutil.move(path1,path2)
-        print('File Renamed')
-    if mr==2:
-        path2=input('Enter the path to move:')
-        shutil.move(path1,path2)
-        print('File Moved')
+    path2=input('Enter the path to move to:')
+    shutil.move(path1,path2)
+    print('File Moved')
 
 def Copy():
-    path1=input('Enter the path of the file to copy or rename:')
+    path1=input('***********************Warning! Copying A File to the Same Directory With A Different Name Will Only Rename the File*************************/nEnter the path of the file to copy:')
     path2=input('Enter the path to copy to:')
     shutil.copy(path1,path2)
     print('File Copied')
+
+def Rename():
+    
+    path=input('Enter directory path of file to rename:')+\
+    cname=input('Enter current name of file to rename:')
+    nname=input('Enter new file name:')
+    shutil.move(path+slash+cname,path+slash+nname)
 
 def Mkdir():
     path=input("Enter the directory name with path to make \neg. C:\\Hello\\Newdir \nWhere Newdir is new directory:")
@@ -109,16 +108,12 @@ def OpenFile():
 
 def Menu():
     # Clears the screen, and gives the user their options on what to do
-    try:
-        os.system('clear')
-    except:
-        os.system('cls')
+    os.system('clear')
+    os.system('cls')
     run=1
     while(run==1):
-        try:
-            os.system('clear')
-        except:
-            os.system('cls')
+        os.system('clear')
+        os.system('cls')
         print('\n>>>>>>>>>>>Python File Manager Version 1.1<<<<<<<<<<\n')
         print('\nChoose the option number: \n')
         dec=int(input('''1.Read a file
@@ -129,10 +124,11 @@ def Menu():
 6.Check file existence
 7.Move a file
 8.Copy a file
-9.Create a directory
-10.Delete a directory
-11.Open a program
-12.Exit
+9.Rename a file
+10.Create a directory
+11.Delete a directory
+12.Open a program
+13.Exit
 
     '''))
         # Determines what will happen based on what the user inputed
@@ -153,21 +149,18 @@ def Menu():
         if dec==8:
             Copy()
         if dec==9:
-            Mkdir()
+            Rename()
         if dec==10:
-            Rmdir()
+            Mkdir()
         if dec==11:
-            OpenFile()
+            Rmdir()
         if dec==12:
+            OpenFile()
+        if dec==13:
             exit()
         else:
-            print('Error: Unknown Request - For common solutions, head to ')
+            print('Error: Unknown Request')
         run=int(input("1.Return to menu\n2.Exit \n"))
-        if run==1:
-            try:
-                os.system('clear')
-            except:
-                os.system('cls')
         if run==2:
             exit()
 

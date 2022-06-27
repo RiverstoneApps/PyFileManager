@@ -1,5 +1,5 @@
 **********IMPORTANT**********
-Please ONLY download the executable files (.exe and Linux Binaries), and none of the other files (unless you want to take a look at the code, in which case, download the .py file).
+Please ONLY download the latest-download.zip file in the dist folder, and not any other files (unless you want to take a look at the code, in which case, download the source-download.zip file in the dist folder).
 
 This is a Repository for a Python File Manager script, and as of now, allows you to read a file,
 write to a file, add to a file, delete a file, list files in a directory, check a file's existence,

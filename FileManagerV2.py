@@ -81,7 +81,7 @@ def Rename():
     path=input('Enter directory path of file to rename:\nAlso, please end the directory path with a slash.')
     cname=input('Enter current name of file to rename:')
     nname=input('Enter new file name:')
-    shutil.move(path+slash+cname,path+slash+nname)
+    shutil.move(path+cname,path+nname)
 
 def Mkdir():
     path=input("Enter the directory name with path to make \neg. C:\\Hello\\Newdir \nWhere Newdir is new directory:")
@@ -114,8 +114,8 @@ def Menu():
     while(run==1):
         os.system('clear')
         os.system('cls')
-        print('\n>>>>>>>>>>>File Manager Version 2.0<<<<<<<<<<\n')
-        print('\nChoose the option number: \n')
+        print('\n>>>>>>>>>>>File Manager Version 2.1<<<<<<<<<<\n')
+        print('\nChoose what to do with files: \n')
         dec=int(input('''1.Read a file
 2.Write to a file
 3.Add to a file

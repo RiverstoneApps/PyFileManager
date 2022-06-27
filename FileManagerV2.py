@@ -78,7 +78,7 @@ def Copy():
 
 def Rename():
     
-    path=input('Enter directory path of file to rename:')+\
+    path=input('Enter directory path of file to rename:\nAlso, please end the directory path with a slash.')
     cname=input('Enter current name of file to rename:')
     nname=input('Enter new file name:')
     shutil.move(path+slash+cname,path+slash+nname)

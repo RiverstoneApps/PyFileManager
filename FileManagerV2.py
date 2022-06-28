@@ -114,7 +114,7 @@ def Menu():
     while(run==1):
         os.system('clear')
         os.system('cls')
-        print('\n>>>>>>>>>>>File Manager Version 2.1<<<<<<<<<<\n')
+        print('\n>>>>>>>>>>>File Manager Version 2.5<<<<<<<<<<\n')
         print('\nChoose what to do with files: \n')
         dec=int(input('''1.Read a file
 2.Write to a file

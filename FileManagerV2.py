@@ -16,7 +16,7 @@ def Read():
     file.close()
 
 def Write():
-    path=input("Enter the path of file to erite or create:")
+    path=input("Enter the path of file to write or create:")
     if os.path.isfile(path):
         print('Rebuilding the exsisting file')
     else:

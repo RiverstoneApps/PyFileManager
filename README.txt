@@ -1,4 +1,5 @@
 **********IMPORTANT**********
+Please DO NOT move any .py files out of the folder they are in. You can move the folder, but not the scripts inside as that will cause errors.
 Please ONLY download the latest-download.zip file in the dist folder, and not any other files (unless you want to take a look at the code, in which case, download the source-download.zip file in the dist folder).
 
 This is a Repository for a Python File Manager script, and as of now, allows you to read a file,

@@ -4,15 +4,19 @@ import os
 import time
 import subprocess
 
-os.system('clear')
-os.system('cls')
+try:
+    os.system('clear')
+except OSError:
+    os.system('cls')
 
 # Defining Functions
 def Read():
     path=input("Enter the file path to read:")
     if path=="return":
-        os.system("clear")
-        os.system("cls")
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
         Menu()
     else:
         file=open(path, "r")
@@ -25,7 +29,7 @@ def Write():
     if path=="return":
         try:
             os.system("clear")
-        except:
+        except OSError:
             os.system("cls")
         Menu()
     else:
@@ -40,6 +44,10 @@ def Write():
 def Add():
     path=input("Enter the file path:")
     if path=="return":
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
         Menu()
     else:
         text=input("Enter text:")
@@ -48,25 +56,38 @@ def Add():
 
 def Delete():
     path=input("Enter the path of the file for deletion:")
-    if os.path.exsists(path):
-        os.remove(path)
-        print('File Removed')
+    if path=="return":
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+        Menu()
     else:
-        print('Error: File Not Found')
+        if os.path.exists(path):
+            os.remove(path)
+            print('File Removed')
+        else:
+            print('Error: File Not Found')
+            Menu()
 
 def Dirlist():
     path=input("Enter the Directory path to display:")
-    sortlist=sorted(os.listdir(path))
-    i=0
-    while(i<len(sortlist)):
-        print(sortlist[i]+'\n')
-        i+1
+    if path=="return":
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+    else:
+        sortlist=sorted(os.listdir(path))
+        i=0
+        while(i<len(sortlist)):
+            print(sortlist[i]+'\n')
+            i+1
 
 def Check():
-    fp=int(input('Check existence of \n1.File \n2.Directory\n'))
+    fp=int(input('Check existence of \n1.File \n2.Directory\n3.Return\n'))
     if fp==1:
         path=input("Enter the file path:")
-        
         if os.path.isfile(path)==True:
             print('File Found')
         else:
@@ -78,60 +99,110 @@ def Check():
            print('Directory Found')
        else:
            print('Directory Not Found')
+    if fp==3:
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+        Menu()
 
 def Move():
     path1=input('Enter the source path of the file to move:')
-    path2=input('Enter the path to move to:')
-    shutil.move(path1,path2)
-    print('File Moved')
+    if path1=="return":
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+        Menu()
+    else:
+        path2=input('Enter the path to move to:')
+        shutil.move(path1,path2)
+        print('File Moved')
 
 def Copy():
-    path1=input('***********************Warning! Copying A File to the Same Directory With A Different Name Will Only Rename the File*************************/nEnter the path of the file to copy:')
-    path2=input('Enter the path to copy to:')
-    shutil.copy(path1,path2)
-    print('File Copied')
+    path1=input('\nEnter the path of the file to copy:\n')
+    if path1=="return":
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+        Menu()
+    else:
+        path2=input('Enter the path to copy to:')
+        shutil.copy(path1,path2)
+        print('File Copied')
 
 def Rename():
-    
     path=input('Enter directory path of file to rename:\nAlso, please end the directory path with a slash.')
-    cname=input('Enter current name of file to rename:')
-    nname=input('Enter new file name:')
-    shutil.move(path+cname,path+nname)
+    if path=="return":
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+        Menu()
+    else:
+        cname=input('Enter current name of file to rename:')
+        nname=input('Enter new file name:')
+        shutil.move(path+cname,path+nname)
 
 def Mkdir():
     path=input("Enter the directory name with path to make \neg. C:\\Hello\\Newdir \nWhere Newdir is new directory:")
-    os.makedirs(path)
-    print('Directory Created')
+    if path=="return":
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+        Menu()
+    else:
+        os.makedirs(path)
+        print('Directory Created')
 
 def Rmdir():
     path=input('Enter path of Directory to delete:')
-    treedir=int(input('1.Deleted Directory \n2.Delete Directory Tree \n3.Exit \n'))
-    if treedir==1:
-        os.rmdir(path)
-    if treedir==2:
-        shutil.rmtree(path)
-        print('Directory Deleted')
-    if treedir==3:
-        exit()
+    if path=="return":
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+        Menu()
+    else:
+        treedir=int(input('1.Deleted Directory \n2.Delete Directory Tree \n3.Exit \n'))
+        if treedir==1:
+            os.rmdir(path)
+        if treedir==2:
+            shutil.rmtree(path)
+            print('Directory Deleted')
+        if treedir==3:
+            exit()
 
 def OpenFile():
     path=input('Enter the path of program:')
-    try:
-        os.startfile(path)
-    except:
-        print('Error: File Not Found')
+    if path=="return":
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+        Menu()
+    else:
+        try:
+            os.startfile(path)
+        except:
+            print('Error: File Not Found')
 
 def Menu():
     # Clears the screen, and gives the user their options on what to do
     try:
         os.system("clear")
-    except:
+    except OSError:
         os.system("cls")
     run=1
     while(run==1):
-        os.system("clear")
-        os.system("cls")
-        print('\n>>>>>>>>>>>File Manager Version 2.7<<<<<<<<<<\nNote: To return to this menu, at the first question type, all lowercase, return\n')
+        try:
+            os.system("clear")
+        except OSError:
+            os.system("cls")
+        print('\n>>>>>>>>>>>File Manager Version 3<<<<<<<<<<\nNote: To return to this menu, at the first question, type, all lowercase, return\n')
+        print('The time is: ',time.asctime())
         print('\nChoose what to do with files: \n')
         dec=int(input('''1.Read a file
 2.Write to a file
@@ -177,7 +248,7 @@ def Menu():
             exit()
         else:
             print('Error: Unknown Request')
-        run=int(input("1.Return to menu\n2.Exit \n"))
+        run=int(input("1.Return to menu\n2.Exit\n"))
         if run==2:
             exit()
 

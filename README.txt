@@ -1,5 +1,5 @@
 **********IMPORTANT**********
-.app file converted by TechWizGYT, a friend of mine. The .app was compiled on Apple Silicon and will likely not work on Intel or PowerPC Macs. - TechWizGYT
+.app file converted by TechWizGYT, a friend of mine. The .app was compiled on Apple Silicon and may not work on Intel or PowerPC Macs. Anybody using one of those Macs, try using it! We would love to know whether it works on those platforms! - TechWizGYT
 Please ONLY download the latest-download.zip file in the dist folder, and not any other files (unless you want to take a look at the code, in which case, download the source-download.zip file in the dist folder).
 
 This is a Repository for a Python File Manager script, and as of now, allows you to read a file,
